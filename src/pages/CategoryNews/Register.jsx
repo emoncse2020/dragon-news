@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
+import { Navigate } from "react-router";
 
 const Register = () => {
   const { createNewUser, setUser } = useContext(AuthContext);
@@ -13,6 +14,7 @@ const Register = () => {
       .then((res) => {
         const user = res.user;
         setUser(user);
+        Navigate("/auth/login");
       })
       .catch((error) => {
         console.log(error);

@@ -1,4 +1,5 @@
 import { FaStar, FaEye, FaShareAlt } from "react-icons/fa";
+import { Link } from "react-router";
 const NewsCard = ({ news }) => {
   const {
     author,
@@ -37,7 +38,12 @@ const NewsCard = ({ news }) => {
           {details.length > 200 ? (
             <>
               {details.slice(0, 200)}...{" "}
-              <span className="text-blue-500 cursor-pointer">Read More</span>
+              <Link
+                to={`/news/${news._id}`}
+                className="text-blue-500 cursor-pointer"
+              >
+                Read More
+              </Link>
             </>
           ) : (
             details
